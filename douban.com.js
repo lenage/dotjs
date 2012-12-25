@@ -5,7 +5,13 @@ var globalNav = $('#db-global-nav'),
     navItems = globalNav.find('.global-nav-items'),
     topNavBackground = $('.nav').css('background'),
     expandArrow = $('<div class="douban-expand">▼</div>'),
-    reminderMore = globalNav.find('.top-nav-reminder .more-items');
+    reminder = globalNav.find('.top-nav-reminder');
+
+function showReminder(){
+  if(reminder.find('.num').text() !==""){
+    reminder.show();
+  }
+}
 
 arrow.remove();
 userInfo.find('a span').text("帐号");
@@ -26,18 +32,23 @@ globalNav.css({
   });
 
 globalNav.find('li>a').css('color','#000');
+
 expandArrow.css({
   'text-align': 'center',
   'cursor': 'pointer',
   'color': '#072'
   });
+
 expandArrow.click(function(){
   var self = $(this);
   globalNav.find('.bd>div').not('.douban-expand').toggle();
+  showReminder();
   $('.global-nav-items:hidden').length > 0 ? self.text("▼") : self.text("▲");
 });
 
-reminderMore.css({
+reminder.find('.more-items').css({
   'left': globalNav.width() + 53/4,
   'top': 0
 });
+
+showReminder();
