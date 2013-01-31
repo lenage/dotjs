@@ -6,11 +6,11 @@ var xiami = {
     },
 
     player : function(){
-        var xiamiRxg = /www.xiami.com\/song/,
+        var xiamiRxg = /xiami.com\/song/,
             embedCode = function(id){
                 return '<embed src="http://www.xiami.com/widget/0_' + id + '/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>';
             };
-        $('.reply-item').each(function(){
+        $('.qor-stream-item').each(function(){
             var _this = $(this),
                 link = _this.find('a.transformed');
             link.each(function(){
