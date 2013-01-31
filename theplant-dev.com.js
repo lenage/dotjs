@@ -17,7 +17,7 @@ var xiami = {
                 var _self = $(this);
                 if(xiamiRxg.test(_self.attr('href'))){
                     var ar = _self.attr('href').split('/');
-                    _self.parent().append(embedCode(ar[ar.length - 1]));
+                    _self.parent().append(embedCode(ar[ar.length - 1].split('?')[0]));
                     _self.remove();
                 }
             });
